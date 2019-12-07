@@ -26,7 +26,7 @@ $ cd base-docs
 ```bash
 $ git checkout -b [作りたいブランチ名] [起点になるブランチ] 
 ```
-example
+ex
 ```bash
 $ git checkout -b add_api-document origin/master
 ```
