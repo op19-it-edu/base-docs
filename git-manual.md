@@ -40,12 +40,12 @@ $ git checkout -b add_api-document origin/master
 $ git branch
 ```
 
-リモートブランチも含めて表示させるときは
+### リモートブランチも含めて表示させるときは
 ```bash
 $ git branch -a
 ```
 
-上流ブランチを表示させるときは
+### 上流ブランチを表示させるときは
 ```bash
 $ git branch -vv
 ```
@@ -89,12 +89,12 @@ $ git commit -m "Modify README"
 
 ### `git reset` でコミットの修正をする
 
-変更はそのままで、直前のコミットだけ取り消す
+#### `-soft` オプションで変更はそのままで、直前のコミットだけ取り消す
 ```bash
 $ git reset -soft　HEAD^
 ```
 
-変更も直前のコミットも取り消す
+#### `hard` オプションで変更も直前のコミットも取り消す
 ```bash
 $ git reset -hard HEAD^
 ```
@@ -102,7 +102,7 @@ $ git reset -hard HEAD^
 ---
 
 ## 6. ローカルブランチをリモート（GitHub）に反映させる
-`git push`でローカルブランチをリモートブランチに反映させる
+### `git push`でローカルブランチをリモートブランチに反映させる
 
 ```bash
 $ git push -u origin [作成するリモートブランチ名]
@@ -125,11 +125,11 @@ $ git push -u origin add_api-document
 ## 8. アサインされた人がレビューしてマージを決定する
 
 - アサインされた人はレビューして問題なかったらマージをする
-- もし編集が必要ならリクエスト内のディスカッションでそこを指摘する
+- もし編集が必要ならリクエスト内の `Conversation` でそこを指摘する
 
 ---
 
-## 9. ディスカッションで指摘があった場合
+## 9. `Conversation` で指摘があった場合
 
 - またエディターを使って編集する
 - 編集点をgit add & commitする
