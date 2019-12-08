@@ -127,7 +127,7 @@ $ git push -u origin add_api-document
   - １つのイシューに対して１つのブランチを作成する
   - 例
     - イシュー：APIドキュメントを作成する
-    - イシュー：add_api-documnent
+    - ブランチ：add_api-documnent
 - イシューから外れる変更はしない
   - 別の部分を変更したくなったら別のブランチを作成する
 
