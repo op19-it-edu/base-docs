@@ -76,6 +76,18 @@ ex
 $ git commit -m "Modify README"
 ```
 
+### 誤ってコミットしまったら...
+
+変更はそのままで、コミットだけ取り消す
+```bash
+$ git reset -soft　HEAD^
+```
+
+変更もコミットも取り消す
+```bash
+$ git reset -hard HEAD^
+```
+
 ---
 
 ## 6. ローカルブランチをリモート（GitHub）に反映させる
