@@ -2,7 +2,7 @@
 
 ## 1. リモートリポジトリからクローンして、そのリポジトリに移動
 
-`git clone` でリモートリポジトリ（GitHub）をクローンする
+### `git clone` でリモートリポジトリ（GitHub）をクローンする
 ```bash
 $ git clone [GitHubからコピーしてきたURL]
 ```
@@ -11,7 +11,7 @@ ex
 $ git clone git@github.com:op19-it-edu/base-docs.git
 ```
 
-クローンしてきたリポジトリに移動する
+### クローンしてきたリポジトリに移動する
 ```bash
 $ cd [リポジトリ名]
 ```
@@ -34,7 +34,8 @@ $ git checkout -b add_api-document origin/master
 ---
 
 ## 3. ブランチの確認
-以下のコマンドで、今いるブランチを確認する
+
+### `git branch`で、今いるブランチを確認する
 ```bash
 $ git branch
 ```
@@ -57,7 +58,18 @@ $ git branch -vv
 ---
 
 ## 5. ローカルブランチの変更をステージング＆コミットする
-`git add` でコミットする内容を選択する
+
+### `git status` で編集したファイルが正しいか確認する
+
+```bash
+$ git status
+```
+### `git diff` でコードレベルの変更を確認する
+
+```bash
+$ git diff
+```
+### `git add` でコミットする内容を選択する
 
 ```bash
 $ git add [コミットしたいファイルなど]
@@ -66,17 +78,16 @@ ex
 ```bash
 $ git add README.md
 ```
-
-`git commit` でコミットする
+### `git commit` でコミットする
 ```bash
-$ git commit -m [コミット名]
+$ git commit -m [コミットメッセージ]
 ```
 ex
 ```bash
 $ git commit -m "Modify README"
 ```
 
-### 誤ってコミットしまったら...
+### `git reset` でコミットの修正をする
 
 変更はそのままで、直前のコミットだけ取り消す
 ```bash
