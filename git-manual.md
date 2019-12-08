@@ -78,12 +78,12 @@ $ git commit -m "Modify README"
 
 ### 誤ってコミットしまったら...
 
-変更はそのままで、コミットだけ取り消す
+変更はそのままで、直前のコミットだけ取り消す
 ```bash
 $ git reset -soft　HEAD^
 ```
 
-変更もコミットも取り消す
+変更も直前のコミットも取り消す
 ```bash
 $ git reset -hard HEAD^
 ```
