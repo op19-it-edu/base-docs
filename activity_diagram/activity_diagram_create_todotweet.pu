@@ -1,0 +1,29 @@
+@startuml
+
+|user|
+
+start
+
+if (todoを入力) then 
+
+elseif (期限を入力)
+  while(期限が正しいか?) is (no)
+    :期限を再入力;
+  endwhile (yes)
+
+elseif (分類ラベルを追加)
+
+elseif (重要度を追加)
+
+elseif (他者にメンション)
+  while(メンションが正しいか?) is (no)
+    :メンションを再入力;
+  endwhile (yes)
+
+endif
+
+:todoを作成;
+
+stop
+
+@enduml
