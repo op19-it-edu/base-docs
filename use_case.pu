@@ -6,52 +6,48 @@ skinparam packageStyle rectangle
 :ツイートtodo DB: as DB_1
 :ユーザー DB: as DB_2
 rectangle ツイートtodoシステム {
-(ツイートtodoを登録する) as (todo_1)
-(オプションをつける) as (todo_1_1)
-(ツイートtodoを閲覧する) as (todo_2)
-(コメントをする) as (todo_2_1)
-(いいねをする) as (todo_2_2)
-(ツイートtodoを管理する) as (todo_3)
-(アカウントを管理する) as (ac1)
-(Followを管理する) as (ac2)
+    (自分のツイートtodo) as (todo_1)
+    (他人のツイートtodo) as (todo_2)
+    (アカウント) as (ac)
+    (Follow) as (fl)
+
     user -- (todo_1)
-    (todo_1) ..> (todo_1_1) : extends
-    (todo_1_1) -- DB_1
+    (todo_1)  -- (クリエート)
+    (クリエート)  -right..> (オプションをつける): extends
+    (クリエート) -- DB_1
+    (todo_1)  -- (アップデート)
+    (アップデート)  -left..> (オプションをつける): extends
+    (アップデート) -- DB_1
+    (todo_1)  -- (リード)
+    (リード) -- DB_1
+    (todo_1)  -- (削除)
+    (削除) -- DB_1
+    
     user -- (todo_2)
-    (todo_2)..> (todo_2_1) : extends
-    (todo_2)..> (todo_2_2) : extends
-    (todo_2_1)-- DB_1
-    (todo_2_2)-- DB_1
-    user - (todo_3)
-    (todo_3)-- DB_1
-    user -- (ac1)
-    (ac1)--- DB_2
-    user -- (ac2)
-    (ac2) --- DB_2
+    (todo_2)  -- (閲覧)
+    (閲覧) -- DB_1
+    (todo_2)  -- (いいね)
+    (いいね) -- DB_1
+    (todo_2)  -- (コメント)
+    (コメント) -- DB_1
+    (todo_2)  -- (リマインド)
+    (リマインド) -- DB_1
+
+    user -- (ac)
+    (ac) -- (作成)
+    (作成) -- DB_2
+    (ac) -- (ログイン)
+    (ログイン) -- DB_2
+    (ac) -- (ログアウト)
+    (ログアウト) -- DB_2
+    (ac) -- (編集)
+    (編集) -- DB_2
+    user -- (fl)
+    (fl) -- (する)
+    (する) -- DB_2
+    (fl) -- (やめる)
+    (やめる) -- DB_2
+    
+
 } 
-note right of (DB_1)
-  ・ ツイートtodoを登録する
-        - ツイート付きtodo
-        - ツイートなしtodo
- ・　ツイートtodoにオプションをつける
-        - 締め切り
-        - 分類
-        - 重要度
-        - Assignee
-        - メンション
-  ・ ツイートtodoを管理する
-        - 削除
-        - 編集
-        - 検索
-        - ソート
-end note
-note right of (DB_2)
-  ・ アカウントを管理する
-        - 新規登録
-        - ログイン
-        -　ログアウト
- ・　フォロー管理
-        - フォローする
-        - フォローをやめる
-end note
 @enduml
