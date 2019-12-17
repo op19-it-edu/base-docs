@@ -2,52 +2,11 @@
 
 left to right direction
 skinparam packageStyle rectangle
-:利用者: as user
-:ツイートtodo DB: as DB_1
-:ユーザー DB: as DB_2
+:ユーザー: as user
 rectangle ツイートtodoシステム {
-    (自分のツイートtodo) as (todo_1)
-    (他人のツイートtodo) as (todo_2)
-    (アカウント) as (ac)
-    (Follow) as (fl)
-
-    user -- (todo_1)
-    (todo_1)  -- (クリエート)
-    (クリエート)  -right..> (オプションをつける): extends
-    (クリエート) -- DB_1
-    (todo_1)  -- (アップデート)
-    (アップデート)  -left..> (オプションをつける): extends
-    (アップデート) -- DB_1
-    (todo_1)  -- (リード)
-    (リード) -- DB_1
-    (todo_1)  -- (削除)
-    (削除) -- DB_1
-    
-    user -- (todo_2)
-    (todo_2)  -- (閲覧)
-    (閲覧) -- DB_1
-    (todo_2)  -- (いいね)
-    (いいね) -- DB_1
-    (todo_2)  -- (コメント)
-    (コメント) -- DB_1
-    (todo_2)  -- (リマインド)
-    (リマインド) -- DB_1
-
-    user -- (ac)
-    (ac) -- (作成)
-    (作成) -- DB_2
-    (ac) -- (ログイン)
-    (ログイン) -- DB_2
-    (ac) -- (ログアウト)
-    (ログアウト) -- DB_2
-    (ac) -- (編集)
-    (編集) -- DB_2
-    user -- (fl)
-    (fl) -- (する)
-    (する) -- DB_2
-    (fl) -- (やめる)
-    (やめる) -- DB_2
-    
-
+    user -- (（自分の）ツイートtodoを管理する)
+    user -- (（followeeの）ツイートtodoを閲覧/いいね/リマインド/コメントする)
+    user -- (（自分の）アカウントを管理する)
+    user -- (followを追加/削除する) 
 } 
 @enduml
