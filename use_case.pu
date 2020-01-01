@@ -1,0 +1,12 @@
+@startuml
+
+left to right direction
+skinparam packageStyle rectangle
+:ユーザー: as user
+rectangle ツイートtodoシステム {
+    user -- (（自分の）ツイートtodoを管理する)
+    user -- (（followeeの）ツイートtodoを閲覧/いいね/リマインド/コメントする)
+    user -- (（自分の）アカウントを管理する)
+    user -- (followを追加/削除する) 
+} 
+@enduml
