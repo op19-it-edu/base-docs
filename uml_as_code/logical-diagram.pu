@@ -1,0 +1,30 @@
+@startuml uml
+
+title logical-diagram
+
+cloud "internet" 
+
+node "localhost" {
+  node "api-server" as api {
+    agent "Golang" as api.golang
+    agent "Echo" as api.echo
+    agent "Gorm" as api.gorm
+  }
+  node "web-server" as web {
+    agent "Vue.js" as web.vue
+    agent "nginx" as web.nginx
+  }
+  database "db-server" as db {
+    agent "MySQL" as db.mysql
+  }
+}
+
+user <-> internet :https
+internet <-> web.nginx :https
+web.nginx <-down-> web.vue :static-data
+web.nginx <-> api.echo :dynamic-data
+api.echo <-> api.golang
+api.golang <-down-> api.gorm
+api.gorm <-down-> db.mysql :SQL
+
+@enduml
