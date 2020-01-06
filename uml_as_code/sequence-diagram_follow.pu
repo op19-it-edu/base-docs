@@ -1,0 +1,29 @@
+@startuml
+title Follow管理 
+opt /login
+    "top_page\n**/top**" as top -> "home_page\n**/home**" as home : user_email,user_password
+    activate top
+    server  --> home : return user_id
+end
+
+|||
+database DB
+server -> DB : データ取得/登録
+DB  --> server : データ返却
+
+activate home
+home -> "user_page\n**/user_name**" as user : 画面遷移
+activate user
+user -> server : follow追加/削除(followeeのuser_id)\n**/following**
+server --> user : follow結果更新(user_id)
+|||
+user -> server : follower追加/削除(followerのuser_id)\n**/follower**
+server --> user : follower結果更新(user_id)
+
+participant top order 10
+participant home order 20
+participant user order 30
+participant server order 40
+participant DB order 50
+
+@enduml
