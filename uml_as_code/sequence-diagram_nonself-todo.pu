@@ -1,0 +1,23 @@
+@startuml
+title Follow管理 
+opt /login
+    "top_page\n**/top**" as top -> "home_page\n**/home**" as home : user_email,user_password
+    activate top
+    server  --> home : return user_id
+end
+
+|||
+database DB
+server -> DB : データ取得/登録
+DB  --> server : データ返却
+
+activate home
+home -> server : いいねする/取消（todo_id)
+server --> home : いいね結果更新(like_id)
+|||
+home -> server : コメント（todo＿id)
+server --> home : コメント内容(reply_content)
+|||
+home -> server : リマインド（todo＿id)
+server --> home : リマインド成功メッセージ
+@enduml
