@@ -1,5 +1,5 @@
 @startuml
-title Follow管理 
+title self-todo管理 
 opt /login
     "top_page\n**/top**" as top -> "home_page\n**/home**" as home : user_email,user_password
     activate top
