@@ -1,1 +1,1 @@
-initial commit
+開発全般に関わるドキュメント
