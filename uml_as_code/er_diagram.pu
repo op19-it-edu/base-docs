@@ -1,0 +1,31 @@
+@startuml
+title: er_diagram
+
+entity "Users" as user {
+  id: integer[PK]
+  --
+  user_name: text
+  user_password: text
+  user_description: text
+}
+
+entity "Relations" as relation {
+  id: integer[PK]
+  --
+  user_id: integer[FK]
+  follow_id: integer[FK]
+}
+
+entity "TodoTweets" as todo {
+  id: integer[PK]
+  --
+  user_id: integer[FK]
+  todo: text
+  deadline: time
+  done: boolean
+}
+
+user --{todo
+user --{relation
+
+@enduml
