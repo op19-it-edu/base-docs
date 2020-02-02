@@ -1,0 +1,27 @@
+@startuml
+title sign_up 
+"新規登録画面\n<https://tweetodo/users/signup>" as signup -> web_server :  新規登録する（user_name, user_email, user_password）
+activate signup
+activate web_server
+
+web_server -> api_server : リクエスト
+activate api_server
+api_server --> web_server : レスポンス
+database DB
+api_server -> DB : データ取得/登録
+activate DB
+DB --> api_server : データ返却
+
+alt 登録成功
+	web_server --> "ホーム画面\n<https://tweetodo/home>" as home : ホーム画面にリダイレクト
+else 登録失敗
+	web_server --> signup: 登録失敗のメッセージを表示する
+end
+
+participant signup order 10
+participant home order 20
+participant web_server order 30
+participant api_server order 40
+participant DB order 50
+
+@enduml

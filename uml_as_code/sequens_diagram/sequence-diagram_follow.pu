@@ -1,0 +1,38 @@
+@startuml
+title Follow
+"ホーム画面\n<https://tweetodo/home>" as home  -> "followee_tweetodo画面\n<https://tweetodo/followee_userName>" as followee : Followeeのユーザー名を押下
+activate home
+web_server -> api_server : リクエスト
+activate web_server
+activate api_server
+api_server --> web_server : レスポンス
+database DB
+api_server -> DB : データ取得/登録
+activate DB
+DB --> api_server : データ返却
+
+followee -> web_server : Follow解除
+activate followee
+web_server --> followee : Follow情報の変更・表示
+followee -->home: 画面更新
+
+
+"フォロ中画面\n<https://tweetodo/login_userName/following>" as following -> web_server : Follow解除
+activate following
+web_server --> following : Follow情報の変更・表示
+following --> home: 画面更新
+
+"フォロワー画面\n<https://tweetodo/login_userName/followers>" as followers -> web_server : Followする
+activate followers
+web_server --> followers : Follow情報の変更・表示
+followers --> home : 画面更新
+
+participant home order 10
+participant followee order 20
+participant following order 20
+participant followers order 20
+participant web_server order 30
+participant api_server order 40
+participant DB order 50
+
+@enduml

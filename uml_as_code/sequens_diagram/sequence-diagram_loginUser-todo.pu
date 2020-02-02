@@ -1,0 +1,39 @@
+@startuml
+title loginUser_tweetodo
+"loginUser_tweetodo画面\n<https://tweetodo/login_userName>" as todos -> "tweetodo新規作成画面\n<https://tweetodo/compose/tweetodo>" as create : 新規作成ボタン押下
+activate todos
+activate create
+create -> web_server : 新規作成する
+activate web_server
+web_server --> "tweetodo詳細画面\n<https://tweetodo/login_userName/tweetodos/todo_id>" as detail : 新規作成tweetodo詳細を表示
+activate detail
+
+|||
+todos -> web_server : 詳細ボタン押下
+web_server --> detail: 該当tweetodo詳細を表示
+|||
+todos -> "tweetodo編集画面\n<https://tweetodo/login_userName/tweetodos/todo_id/edit>" as edit : 編集ボタン押下
+activate edit
+edit -> web_server : 編集する
+web_server --> detail: 編集したtweetodo詳細を表示
+|||
+todos -> web_server : 削除ボタン押下
+web_server --> todos: 削除後tweetodo一覧を表示
+
+web_server -> api_server : リクエスト
+activate api_server
+api_server --> web_server : レスポンス
+database DB
+api_server -> DB : データ取得/登録
+activate DB
+DB --> api_server : データ返却
+
+participant todos order 10
+participant create order 20
+participant detail order 20
+participant edit order 20
+participant web_server order 30
+participant api_server order 40
+participant DB order 50
+
+@enduml
