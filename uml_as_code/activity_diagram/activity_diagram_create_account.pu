@@ -1,0 +1,35 @@
+@startuml
+title: create_acount
+
+|user|
+
+start
+
+:アカウント情報を入力;
+note right
+  user_name
+  user_password
+  user_email
+end note
+
+|todo_tweet_app|
+
+while (user_nameが正しいか?) is (no)
+  :user_nameを再入力;
+endwhile (yes)
+
+while (user_passwordが正しいか?) is (no)
+  :user_passwordを再入力;
+endwhile (yes)
+
+while (user_emailが正しいか?) is (no)
+  :user_emailを再入力;
+endwhile (yes)
+
+|user|
+
+  :アカウントを作成;
+
+stop
+
+@enduml

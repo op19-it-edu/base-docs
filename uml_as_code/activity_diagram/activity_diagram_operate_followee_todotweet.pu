@@ -1,0 +1,15 @@
+@startuml
+title: operate_forowee_todotweet
+
+(*) --> "FolloweeTodoTweetを表示"
+note right: updated_atが新しいほど上位に並ぶ
+
+"FolloweeTodoTweetを表示" --> "いいねする"
+"FolloweeTodoTweetを表示" --> "リマインドする"
+"FolloweeTodoTweetを表示" --> "リプライする"
+
+"いいねする" --> (*)
+"リマインドする" --> (*)
+"リプライする" --> (*)
+
+@enduml
